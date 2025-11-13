@@ -7,9 +7,6 @@
   --yuzu: #F9D77E;          /* 柚子イエロー(Accent) */
   --yuzu-dark: #E7C467;
   --beige: #FFF8E7;         /* ナチュラル背景 */
-  --beige-0: #FFF8E7; /* 既存 */
-  --beige-1: #FFFDF8; /* ほんのり明るい */
-  --beige-2: #FFF3E0; /* 少し温かい */
   --ink: #222;           /* 文字色 */
   --ink-soft: #555555;
   --line: #EDE7DA;          /* 薄い枠線 */
@@ -52,12 +49,6 @@ p {
   margin: 0 0 16px;
   color: var(--ink-soft);
 }
-
-/* セクションごとのトーン差（お好みで入れ替えOK） */
-.about   { background: var(--beige-1); }
-.works   { background: var(--beige-0); }
-.service { background: var(--beige-2); }
-.contact { background: var(--beige-1); }
 
 /* セクション間の余白を少し広げて“空気”をつくる */
 section { padding: 84px 0; } /* 既存より+12pxほど */
@@ -196,6 +187,7 @@ section { padding: 84px 0; } /* 既存より+12pxほど */
 .about h2, .works h2, .service h2, .contact h2{
   font-size: clamp(22px, 3vw, 28px);
   margin-bottom: 24px;
+  border-bottom: dashed 2px var(--yuzu)
 }
 .skills{
   display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;
