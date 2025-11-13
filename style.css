@@ -35,8 +35,9 @@ body{
   width: min(1100px, 92%);
   margin: 0 auto;
 }
-section{
-  padding: 72px 0;
+/* セクション間の余白を少し広げて“空気”をつくる */
+section {
+  padding: 84px 0;/* 既存より+12pxほど */
 }
 h1,h2,h3{
 
@@ -49,9 +50,6 @@ p {
   margin: 0 0 16px;
   color: var(--ink-soft);
 }
-
-/* セクション間の余白を少し広げて“空気”をつくる */
-section { padding: 84px 0; } /* 既存より+12pxほど */
 
 /* ================================
    Header / Nav
