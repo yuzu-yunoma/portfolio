@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yunoma Design | ポートフォリオ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Zen+Kurenaido&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/lightbox.min.css">
 </head>
+
 <body>
 
   <!-- 🔶 ヘッダー -->
@@ -36,7 +39,7 @@
   <section id="about" class="about fade-in">
     <div class="container">
       <h2>About Me</h2>
-      <p>こんにちは、柚です。<br>
+      <p>こんにちは、柚(ゆず)と申します。<br>
       コールセンターで働きながらWebデザインとプログラミングを学んでいる1歳児の母です。<br>
       シンプルで温かみのあるデザインが好きで、HTML/CSSを使って自分の世界観を表現しています。</p>
       <ul class="skills">
@@ -48,7 +51,13 @@
         <li>WordPress（Lightning）</li>
       </ul>
     </div>
+  <div class="yuzu-divider" aria-hidden="true">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+</div>
   </section>
+
 
   <!-- 🖼 Works -->
   <section id="works" class="works fade-in">
@@ -56,28 +65,33 @@
       <h2>Works</h2>
       <div class="work-list">
         <div class="work-item">
-          <img src="images/yuzu_sample_01.png" alt="旅行バナー">
+          <a href="images/yuzu_sample_01.png" data-lightbox="Works" data-title="旅行バナー（SNS投稿）"><img src="images/yuzu_sample_01.png" alt="旅行バナー（SNS投稿）"></a>
           <p>旅行バナー（SNS投稿）</p>
         </div>
         <div class="work-item">
           <div class="badge">採用</div>
-          <img src="images/LPmain.png" alt="ホテルLP（高級感ver.）">
+          <a href="images/LPmain.png" data-lightbox="Works" data-title="ホテルLPファーストビュー（高級感ver.）"><img src="images/LPmain.png" alt="ホテルLPファーストビュー（高級感ver.）"></a>
           <p>ホテルLP（高級感ver.）</p>
         </div>
         <div class="work-item">
-          <img src="images/LPmain2.png" alt="ホテルLP（カジュアルver.）">
+          <a href="images/LPmain2.png" data-lightbox="Works" data-title="ホテルLPファーストビュー（カジュアルver.）" ><img src="images/LPmain2.png" alt="ホテルLPファーストビュー（カジュアルver.）"></a>
           <p>ホテルLP（カジュアルver.）</p>
         </div>
         <div class="work-item">
-          <img src="images/美容室サイト.png" alt="美容室サイト">
+          <a href="images/美容室サイト.png" data-lightbox="Works" data-title="美容室サイト"><img src="images/美容室サイト.png" alt="美容室サイト" class="thumb-fv"></a>
           <p>美容室サイト(WordPress)</p>
         </div>
         <div class="work-item">
-          <img src="images/カフェサイト.png" alt="カフェサイト">
+          <a href="images/カフェサイト.png" data-lightbox="Works" data-title="カフェサイト"><img src="images/カフェサイト.png" alt="カフェサイト" class="thumb-fv"></a>
           <p>カフェサイト(WordPress)</p>
         </div>
       </div>
     </div>
+  <div class="yuzu-divider" aria-hidden="true">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+</div>
   </section>
 
   <!-- 💡 Service -->
@@ -158,6 +172,11 @@
       </div>
       </div>
     </div>
+  <div class="yuzu-divider" aria-hidden="true">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+  <img src="images/yuzuicon.png" alt="">
+</div>
   </section>
 
 <!-- 💌 Contact -->
@@ -171,11 +190,11 @@
     </p>
 
     <div class="contact-buttons">
-      <a href="mailto:yunoma.dev@gmail.com" class="btn-contact">📩 メールで相談する</a>
-      <a href="https://crowdworks.jp/public/employees/6442811?ref=share_url_wkprofile" target="_blank" class="btn-contact secondary">💼 CrowdWorksを見る</a>
+      <a href="https://forms.gle/KoLDkJJonhhnaAbu6" class="btn-contact">📩 お問い合わせはこちら</a>
+      <a href="https://crowdworks.jp/public/employees/6442811?ref=share_url_wkprofile" target="_blank" rel="noopener noreferrer" class="btn-contact secondary">💼 CrowdWorksを見る</a>
     </div>
 <div class="contact-social">
-  <a href="https://x.com/yuzu_yunoma" target="_blank" aria-label="X">
+  <a href="https://x.com/yuzu_yunoma" target="_blank" rel="noopener noreferrer" aria-label="X">
     <img src="icons/x.svg" alt="Xロゴ" class="social-icon">
   </a>
 </div>
@@ -190,16 +209,42 @@
     <p>© 2025 YUNOMA DESIGN / 柚乃間</p>
   </footer>
 
-  <script>
-  // スクロールでふわっとアニメ表示
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('show');
-    });
-  });
-  fadeEls.forEach(el => observer.observe(el));
-</script>
+  <!-- 🔝 トップに戻るボタン -->
+  <button id="backToTop" class="back-to-top" aria-label="ページ上部へ戻る"></button>
 
+  <!-- 💡 自前スクリプト：DOMContentLoaded内に1セットだけ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // ふわっとアニメ
+      const fadeEls = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('show');
+        });
+      });
+      fadeEls.forEach(el => observer.observe(el));
+
+      // 🔝 トップに戻るボタン
+      const backToTop = document.getElementById('backToTop');
+
+      const updateBackToTop = () => {
+        if (!backToTop) return;
+        backToTop.classList.toggle('show', window.scrollY > 400);
+      };
+
+      window.addEventListener('scroll', updateBackToTop);
+      window.addEventListener('load', updateBackToTop);
+      updateBackToTop(); // 初回反映（読み込み位置が下でも出る）
+
+      if (backToTop) {
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+    });
+  </script>
+
+  <!-- 🔦 Lightbox（プラグイン） -->
+  <script src="js/lightbox-plus-jquery.min.js"></script>
 </body>
 </html>
