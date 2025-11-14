@@ -1,151 +1,191 @@
 /* ================================
-   YUZUKI DESIGN – Base Styles
+  🍋 1. カラーテーマ & 基本設定
    ================================ */
 
-/* 1) CSS変数（ブランドカラー） */
+/* ブランドカラーなど共通で使う色・影 */
 :root{
   --yuzu: #F9D77E;          /* 柚子イエロー(Accent) */
-  --yuzu-dark: #E7C467;
-  --beige: #FFF8E7;         /* ナチュラル背景 */
-  --ink: #222;           /* 文字色 */
-  --ink-soft: #555555;
-  --line: #EDE7DA;          /* 薄い枠線 */
+  --yuzu-dark: #E7C467;     /* 濃い柚子色（ホバーなど） */
+  --beige: #FFF8E7;         /* ベースのベージュ */
+  --beige-soft: #FFFDF6;    /* 上部用の明るいベージュ */
+  --beige-warm: #FBE6C8;    /* 下部用の少し濃いベージュ */
+  --ink: #222222;           /* メイン文字色 */
+  --ink-soft: #555555;      /* 説明文など少し薄め */
+  --line: #EDE7DA;          /* 薄いライン色 */
   --white: #FFFFFF;
-  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+  --shadow: 0 8px 24px rgba(0,0,0,0.08); /* カード用の柔らかい影 */
 }
 
-/* 2) ベースリセット */
+/* アンカーのスムーススクロール */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+  2. リセット & タイポグラフィ
+   ================================ */
+
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul { margin: 0; padding: 0; list-style: none; }
 
-/* 3) タイポ・背景 */
 body{
   font-family: "Zen Kurenaido", "Noto Sans JP", "Hiragino Kaku Gothic ProN", system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: linear-gradient(180deg, var(--beige-soft) 0%, var(--beige) 50%, var(--beige-warm) 100%);
+  /* ベージュの縦グラデーション背景 */
+  background: linear-gradient(
+    180deg,
+    var(--beige-soft) 0%,
+    var(--beige) 50%,
+    var(--beige-warm) 100%
+  );
   line-height: 1.7;
   letter-spacing: .02em;
 }
 
-/* 4) 共通レイアウト */
+/* 共通コンテナ：最大幅1100px、左右は画面に応じて縮む */
 .container{
   width: min(1100px, 92%);
   margin: 0 auto;
 }
-/* セクション間の余白を少し広げて“空気”をつくる */
-section {
-  padding: 84px 0;/* 既存より+12pxほど */
-}
-h1,h2,h3{
 
-  margin: 0 0 16px; line-height: 1.3;
+/* セクションの上下余白（少しゆったりめ） */
+section {
+  padding: 84px 0;
 }
+
+/* 見出しと段落の共通設定 */
+h1,h2,h3{
+  margin: 0 0 16px;
+  line-height: 1.3;
+}
+
 p {
   font-family: "Zen Kurenaido", "Noto Sans JP", sans-serif;
-  font-size: 16.5px; /* ←ちょい大きめ推奨 */
+  font-size: 16.5px;
   line-height: 1.8;
   margin: 0 0 16px;
   color: var(--ink-soft);
 }
 
 /* ================================
-   Header / Nav
+  3. ヘッダー / ナビゲーション
    ================================ */
+
 .header{
-  position: sticky; top: 0; z-index: 50;
+  position: sticky;
+  top: 0;
+  z-index: 50;
   background: rgba(255,255,255,.8);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
+
 .header .container{
-  display: flex; align-items: center; justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 14px 0;
 }
+
 .logo{
-  font-size: 18px; font-weight: 800; letter-spacing: .08em;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .08em;
 }
-.nav-list{ display: flex; gap: 20px; }
+
+/* ロゴはホバーで少しだけフェード */
+.logo a {
+  transition: opacity .2s ease;
+}
+.logo a:hover {
+  opacity: .6;
+}
+
+/* ナビゲーション */
+.nav-list{
+  display: flex;
+  gap: 20px;
+}
 .nav-list a{
-  padding: 8px 10px; border-radius: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
 }
 .nav-list a:hover{
-  background: var(--yuzu); color: #000;
+  background: var(--yuzu);
+  color: #000;
 }
 
 /* ================================
-   Hero
+  4. Hero セクション
    ================================ */
-/* ================================
-   🌄 Heroセクション（メインビジュアル）
-   ================================ */
+
 .hero {
-  /* セクション全体の位置やレイアウト設定 */
-  position: relative;              /* 背景画像や装飾を重ねるときに必要 */
-  display: flex;                   /* 中央寄せを簡単にするためにflexを使用 */
-  align-items: center;             /* 垂直方向の中央寄せ */
-  justify-content: center;         /* 水平方向の中央寄せ */
-  text-align: center;              /* テキストを中央揃えに */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 
-  /* PC表示での高さ設定 */
-  min-height: 85vh;                /* 画面の高さの85%を確保してHeroを広く見せる */
+  /* 画面の約85%の高さで見せる */
+  min-height: 85vh;
 
-  /* 背景画像の指定 */
-  background-image: url("images/hero-bg.png"); /* Heroの背景画像を指定 */
-  background-size: cover;           /* 画像を縦横比を保ったまま全面に表示 */
-  background-position: center;      /* 画像の中央部分を常に表示 */
-  background-repeat: no-repeat;     /* 背景画像を繰り返さない */
+  /* ゆず背景画像 */
+  background-image: url("images/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-  /* 明るさ・視認性の調整 */
-  background-blend-mode: overlay;   /* 背景色と画像を重ねて文字を見やすくする */
-  background-color: rgba(255, 255, 255, 0.6); /* 明るい半透明フィルターをかける */
+  /* 画像＋白フィルターで文字を読みやすく */
+  background-blend-mode: overlay;
+  background-color: rgba(255, 255, 255, 0.6);
 
-  /* 下端のライン */
-  border-bottom: 1px solid var(--line); /* セクションの下に薄い線を引く */
+  border-bottom: 1px solid var(--line);
 }
 
+/* Hero の見出しだけ明朝体に */
 .hero h2 {
   font-family: "Zen Old Mincho", serif;
   font-weight: 500;
   letter-spacing: 0.04em;
 }
 
-
-/* Hero内のテキストを読みやすくするための影 */
-.hero h2, .hero p {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.25); /* 黒のぼかし影で背景とのコントラストを出す */
+/* Hero 内のテキストには軽く影を乗せて読みやすく */
+.hero h2,
+.hero p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
 }
 
-/* ================================
-   📱 スマホ用（レスポンシブ対応）
-   ================================ */
-@media (max-width: 640px){
-  .hero{
-    min-height: 55vh;              /* スマホでは高さを少し低くしてバランスを取る */
-    background-position: center top; /* 画像の上部を優先的に見せる */
-  }
-}
-
+/* Hero の中身レイアウト */
 .hero-content{
   text-align: center;
   padding: 56px 24px;
 }
+
 .hero h2{
   font-size: clamp(28px, 4vw, 42px);
   margin-bottom: 8px;
 }
+
 .hero p{
   font-size: clamp(14px, 2.2vw, 18px);
   margin-bottom: 24px;
   color: var(--ink);
 }
+
+/* スマホ専用改行用の span（デフォルトは非表示） */
+.sp-br{
+  display: none;
+}
+
+/* 「作品を見る」ボタン */
 .btn {
   letter-spacing: .02em;
   min-width: 180px;
   display: inline-flex;
-  flex-direction: column;         /* ←縦並び */
+  flex-direction: column;   /* テキスト＋矢印を縦並び */
   align-items: center;
   justify-content: center;
   padding: 18px 32px;
@@ -159,51 +199,60 @@ p {
   transition: transform 0.3s ease, background 0.25s ease;
 }
 
-/* ↓矢印 */
+/* ボタンの下に矢印 */
 .btn::after {
   content: "↓";
   font-size: 15px;
   display: block;
-  transition: transform 0.3s ease; /* ←親と一緒に動かす */
+  transition: transform 0.3s ease;
 }
 
-/* ホバー時（ボタン全体＋矢印をまとめて動かす） */
+/* ホバー時：ボタンごと少し浮かせる＋矢印も少し下へ */
 .btn:hover {
   background: var(--yuzu-dark);
   transform: translateY(-5px);
 }
-
 .btn:hover::after {
-  transform: translateY(2px);     /* ←矢印も軽く下へ動く */
+  transform: translateY(2px);
 }
-
-
 
 /* ================================
-   About
+  5. About セクション
    ================================ */
-.about h2, .works h2, .service h2, .contact h2{
+
+.about h2,
+.works h2,
+.service h2,
+.contact h2{
   font-size: clamp(22px, 3vw, 28px);
   margin-bottom: 24px;
-  border-bottom: dashed 2px var(--yuzu)
+  border-bottom: dashed 2px var(--yuzu); /* 下に点線を入れて区切り感 */
 }
+
+/* Skills バッジ */
 .skills{
-  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
 }
+
 .skills li{
-  padding: 8px 12px; background: var(--white);
+  padding: 8px 12px;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 999px;
 }
 
 /* ================================
-   Works – カードレイアウト
+  6. Works – カードレイアウト
    ================================ */
+
 .work-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 18px;
-  justify-content: center; /* ←全体を中央寄せにする！ */
+  justify-content: center;
 }
 
 .work-item{
@@ -213,8 +262,11 @@ p {
   overflow: hidden;
   box-shadow: var(--shadow);
   transition: transform .2s ease;
+  position: relative;      /* 採用バッジの基準 */
 }
-.work-item:hover{ transform: translateY(-4px); }
+.work-item:hover{
+  transform: translateY(-4px);
+}
 
 .work-item img{
   aspect-ratio: 4 / 3;
@@ -222,93 +274,81 @@ p {
   width: 100%;
 }
 
-/* WPスクショだけFVを上寄せ表示 */
+/* 縦長スクショをFVだけ見せたいとき用 */
 .work-item img.thumb-fv{
   object-position: center top;
 }
+
 .work-item p{
-  padding: 12px 14px; margin: 0; color: var(--ink);
+  padding: 12px 14px;
+  margin: 0;
+  color: var(--ink);
   font-weight: 600;
 }
-/* ================================
-   🏆 採用バッジ（右上＋shine演出付き）
-   ================================ */
 
-/* ▼ 基本スタイル：位置・見た目 */
+/* 🏆 採用バッジ（右上＋shine演出付き） */
 .badge {
-  position: absolute;              /* 親（.work-item）を基準に右上固定 */
-  top: 12px;                       /* 上からの余白 */
-  right: 12px;                     /* 右からの余白 */
-  background: linear-gradient(135deg, #f9d77e, #f7b733); /* ゴールド系グラデーション */
-  color: #fff;                     /* 文字色は白で視認性アップ */
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #f9d77e, #f7b733);
+  color: #fff;
   font-weight: 700;
   font-size: 14px;
-  padding: 6px 12px;               /* バッジの内側余白 */
-  border-radius: 999px;            /* ふんわり丸みをつける */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25); /* ほんのり立体感 */
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.05em;
-  z-index: 2;                      /* 画像の上に重ねる */
-  overflow: hidden;                /* 光の演出をバッジ内に閉じ込める */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* ホバー時に滑らかに変化 */
+  z-index: 2;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ▼ 親カードの設定（バッジ位置の基準にする） */
-.work-item {
-  position: relative;              /* absolute位置の基準を作る！これがないとズレる */
-  overflow: hidden;                /* shineエフェクトがカード外にはみ出さないように */
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* ▼ カードをホバーしたとき：バッジが少し浮く＋光る */
-.work-item:hover .badge {
-  transform: translateY(-3px);     /* ふわっと上に浮かせる */
-  box-shadow: 0 4px 10px rgba(249, 215, 126, 0.8); /* 柚子ゴールドな光を追加 */
-}
-
-/* ▼ 光（shine）用の擬似要素 */
+/* shine 用の白いハイライト */
 .badge::after {
-  content: "";                     /* 擬似要素を生成 */
+  content: "";
   position: absolute;
   top: 0;
-  left: -75%;                      /* スタート位置は左外側から */
-  width: 50%;                      /* 光の幅 */
+  left: -75%;
+  width: 50%;
   height: 100%;
   background: linear-gradient(
     120deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.6) 50%,
     rgba(255, 255, 255, 0) 100%
-  );                               /* 白のハイライトグラデーション */
-  transform: skewX(-25deg);        /* 光を斜めに傾ける */
+  );
+  transform: skewX(-25deg);
 }
 
-/* ▼ ホバー時に光がスッと走るアニメーション */
+/* ホバーするとバッジが少し浮いて光が走る */
+.work-item:hover .badge {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(249, 215, 126, 0.8);
+}
 .work-item:hover .badge::after {
-  animation: shine 1.1s ease forwards; /* 光の速さ・滑らかさ調整 */
+  animation: shine 1.1s ease forwards;
 }
 
-/* ▼ 光の移動アニメーション */
+/* 光の移動アニメーション */
 @keyframes shine {
-  0% {
-    left: -75%;
-  }
-  100% {
-    left: 125%;                    /* バッジ右側まで走り抜ける */
-  }
+  0%   { left: -75%; }
+  100% { left: 125%; }
 }
 
 /* ================================
-   Service（スキルカード：3カラム固定）
+  7. Service（スキルカード）
    ================================ */
 
 .skill-icons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* ★3カラム固定 */
+  grid-template-columns: repeat(3, 1fr); /* PCでは3カラム */
   gap: 24px;
   margin-top: 32px;
   justify-items: center;
 }
 
+/* カード本体（PC時） */
 .skill-item {
   background: var(--white);
   border: 1px solid var(--line);
@@ -316,20 +356,20 @@ p {
   padding: 24px 12px;
   text-align: center;
   box-shadow: var(--shadow);
-  transition: transform .2s ease, box-shadow .2s ease;
   width: 100%;
-  max-width: 300px; /* カードの最大幅 */
-  box-shadow: var(--shadow);
-  transition: transform .2s ease, box-shadow .2s ease;
+  max-width: 300px;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  position: relative; /* ツールチップの基準 */
 }
 
+/* ふわっと下に2pxだけ動く（クリックっぽく見えないように） */
 .skill-item:hover {
-  transform: translateY(2px);                     /* ← 下へ2px */
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);        /* 影も控えめに */
-  filter: saturate(1.02);                          /* 色味わずかにリッチに（任意） */
+  transform: translateY(2px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  filter: saturate(1.02);
 }
 
-/* SVGアイコン（シンプル白なし版） */
+/* アイコン部分（SVG） */
 .skill-icon {
   width: 56px;
   height: 56px;
@@ -338,13 +378,13 @@ p {
   align-items: center;
   justify-content: center;
 }
-
 .skill-icon img {
   width: 100%;
   height: 100%;
-  opacity: 0.9;       /* ほんのり優しい濃さ */
+  opacity: 0.9;
 }
 
+/* スキル名 */
 .skill-item p {
   margin: 0;
   font-weight: 600;
@@ -352,12 +392,7 @@ p {
   color: var(--ink);
 }
 
-/* --- Tooltip base --- */
-.skill-item {
-  position: relative;
-}
-
-/* --- 柚子色ふきだし本体 --- */
+/* PCではホバー時にツールチップを出す */
 .skill-item::after {
   content: attr(data-tip);
   position: absolute;
@@ -365,7 +400,6 @@ p {
   bottom: 110%;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
-  
   background: var(--yuzu);
   border: 1px solid var(--yuzu-dark);
   color: var(--ink);
@@ -373,70 +407,38 @@ p {
   padding: 6px 10px;
   border-radius: 6px;
   box-shadow: 0 3px 12px rgba(0,0,0,0.12);
-  
   opacity: 0;
   pointer-events: none;
   transition: opacity .25s ease, transform .25s ease;
   z-index: 50;
 }
 
-/* --- 三角（ふきだし） --- */
 .skill-item::before {
   content: "";
   position: absolute;
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  
   border: 6px solid transparent;
   border-top-color: var(--yuzu);
-  
   opacity: 0;
   transition: opacity .25s ease;
 }
 
-/* --- ホバー時にふわっと表示 --- */
+/* ホバーでふわっと表示 */
 .skill-item:hover::after,
 .skill-item:hover::before {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
 
-/* PCでは非表示（デフォルト）← 先に書く！*/
+/* PCでは説明テキストは非表示（ツールチップのみ） */
 .skill-desc {
   display: none;
 }
 
-/* ✅ スマホは説明文を下に出す */
-@media (max-width: 640px) {
-
-  /* ホバー用ツールチップ無効化 */
-  .skill-item::after,
-  .skill-item::before {
-    display: none !important;
-  }
-
-  .skill-desc {
-    display: block;
-    font-size: 12px;
-    margin-top: 8px;
-    line-height: 1.5;
-    color: var(--ink-soft);
-  }
-}
-
-/* ▼ 動きが苦手な人向け（OS設定に追従） */
-@media (prefers-reduced-motion: reduce) {
-  .skill-item { transition: none; }
-  .skill-item:hover,
-  .skill-item:active { transform: none; }
-}
-
-
-
-
 /* ================================
-   💌 Contact Section
+  8. Contact セクション
    ================================ */
 
 .contact-box {
@@ -456,7 +458,7 @@ p {
   margin-bottom: 32px;
 }
 
-/* ボタンコンテナ */
+/* ボタン周り */
 .contact-buttons {
   display: flex;
   flex-direction: column;
@@ -471,7 +473,6 @@ p {
   border-radius: 999px;
   font-weight: 700;
   font-size: 15px;
-  text-decoration: none;
   background: var(--yuzu);
   color: var(--ink);
   box-shadow: var(--shadow);
@@ -479,18 +480,16 @@ p {
   width: 100%;
   max-width: 280px;
 }
-
 .btn-contact:hover {
   transform: translateY(-2px);
   background: var(--yuzu-dark);
 }
 
-/* 2個目：白ボタン */
+/* 2個目は白ベースボタン */
 .btn-contact.secondary {
   background: #fff;
   border: 2px solid var(--yuzu);
 }
-
 .btn-contact.secondary:hover {
   background: var(--yuzu);
   color: var(--ink);
@@ -502,8 +501,6 @@ p {
   display: flex;
   justify-content: center;
 }
-
-
 .social-icon {
   width: 20px;
   height: 20px;
@@ -511,28 +508,15 @@ p {
   transition: .2s ease;
   filter: brightness(0);
 }
-
 .social-icon:hover {
   opacity: 1;
   transform: translateY(-2px);
 }
 
-
-/* スマホ調整 */
-@media (max-width: 640px){
-  .contact-box {
-    padding: 36px 20px;
-  }
-  .contact-copy {
-    font-size: 14px;
-  }
-}
-
-
-
 /* ================================
-   Footer
+  9. フッター
    ================================ */
+
 .footer{
   text-align: center;
   padding: 28px 0;
@@ -541,36 +525,7 @@ p {
 }
 
 /* ================================
-   Responsive
-   ================================ */
-@media (max-width: 1024px){
-  .work-list{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px){
-  .header .container{ gap: 8px; }
-  .nav-list{ gap: 8px; }
-  .hero{ min-height: 52vh; }
-  section{ padding: 56px 0; }
-  .work-list{ grid-template-columns: 1fr; }
-}
-
-/* ================================
-   🌈 ゆっくり＋順番ふわっとアニメ
-   ================================ */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);  /* 下から少し距離をとる */
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-/* 表示状態 */
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ================================
-   🔝 トップに戻るボタン（ライン矢印ver.）
+  10. トップに戻るボタン
    ================================ */
 
 .back-to-top {
@@ -581,7 +536,7 @@ p {
   height: 52px;
   border-radius: 50%;
   border: none;
-  background: var(--yuzu-dark); /* 柚子の濃い色 */
+  background: var(--yuzu-dark);
   box-shadow: 0 4px 16px rgba(0,0,0,0.25);
   cursor: pointer;
   opacity: 0;
@@ -591,7 +546,7 @@ p {
   z-index: 1000;
 }
 
-/* ▼ 白いライン矢印（ひらがなの「へ」風） */
+/* 白いライン矢印（ひらがなの「へ」風） */
 .back-to-top::before {
   content: "";
   position: absolute;
@@ -605,53 +560,39 @@ p {
   transition: transform 0.2s ease;
 }
 
-/* ホバーでふわっと上へ */
+/* ホバーで少し揺らす＋背景色を薄く */
 .back-to-top:hover::before {
   transform: translate(-50%, -50%) rotate(135deg);
 }
-
 .back-to-top:hover {
   background: var(--yuzu);
   animation: yuzuShake 0.6s ease-in-out infinite alternate;
 }
 
-@keyframes yuzuShake {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-3px) rotate(3deg); }
-  100% { transform: translateY(0) rotate(-3deg); }
-}
-
-/* スクロールで出現 */
+/* 出現状態 */
 .back-to-top.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
 
-/* スマホ版（少し小さめ） */
-@media (max-width: 640px){
-  .back-to-top{
-    width: 44px;
-    height: 44px;
-    bottom: 18px;
-    right: 18px;
-  }
-  .back-to-top::before {
-    width: 12px;
-    height: 12px;
-    border-width: 2.5px;
-  }
+/* ゆずがぷるんと揺れるアニメーション */
+@keyframes yuzuShake {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-3px) rotate(3deg); }
+  100% { transform: translateY(0) rotate(-3deg); }
 }
 
 /* ================================
-   🍋 Yuzu divider (section separator)
+  11. ゆずアイコンの区切り
    ================================ */
+
 .yuzu-divider{
   display: flex;
   justify-content: center;
   gap: 14px;
-  margin: 48px 0 0;   /* 上だけ空ける：前セクションの最後に置く用 */
-  pointer-events: none; /* 装飾なのでクリック不可に */
+  margin: 180px 0 0;
+  pointer-events: none; /* 装飾なのでクリック無効 */
 }
 
 .yuzu-divider img{
@@ -663,7 +604,7 @@ p {
   animation: gentleFloat 3s ease-in-out infinite alternate;
 }
 
-/* ゆず3つのランダムな揺れ */
+/* 3つを少しずつずらして揺らす */
 .yuzu-divider img:nth-child(2){ animation-delay: .25s; transform: translateY(-1px); }
 .yuzu-divider img:nth-child(3){ animation-delay: .5s;  transform: translateY(-2px); }
 
@@ -672,9 +613,195 @@ p {
   100% { transform: translateY(-3px); }
 }
 
-/* 動きが苦手な人の設定に追従 */
-@media (prefers-reduced-motion: reduce){
-  .yuzu-divider img{ animation: none; transform: none; }
+/* ================================
+  12. ふわっとフェードイン
+   ================================ */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* ================================
+  13. レスポンシブ
+   ================================ */
 
+/* タブレット以下：Works を2カラムに */
+@media (max-width: 1024px){
+  .work-list{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* スマホレイアウト（～640px） */
+@media (max-width: 640px){
+
+  /* セクション間隔を少し詰める */
+  section{
+    padding: 56px 0;
+  }
+
+  /* 各セクション中央寄せ */
+  .about .container,
+  .works .container,
+  .service .container,
+  .contact .container {
+    text-align: center;
+  }
+
+  /* ヘッダー：ロゴの下にメニュー */
+  .header .container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 0;
+  }
+
+  .logo{
+    font-size: 16px;
+  }
+
+  .nav-list{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .nav-list a{
+    padding: 4px 6px;
+    font-size: 13px;
+  }
+
+  /* Hero の高さと背景位置調整＋改行ON */
+  .hero{
+    min-height: 55vh;
+    background-position: center top;
+  }
+  .sp-br{
+    display: inline;
+  }
+
+  /* Skills ラベルを中央寄せ */
+  .skills{
+    justify-content: center;
+    text-align: center;
+  }
+  .skills li{
+    display: inline-block;
+    margin: 6px 4px;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+
+  /* Works カードを1カラム＋中央 */
+  .work-list{
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .work-item{
+    width: 100%;
+    max-width: 340px;
+  }
+
+  /* Service を1カラム＋アイコン左・テキスト右に */
+  .skill-icons {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skill-item{
+    display: flex;
+    align-items: center;
+    padding: 18px 14px;
+    gap: 14px;
+    text-align: left;
+  }
+
+  .skill-icon{
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    margin: 0;
+  }
+
+  .skill-text{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .skill-text p:first-child{
+    margin: 0;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+  }
+
+  .skill-desc{
+    display: block;
+    font-size: 13px;
+    margin-top: 0;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  /* スマホではツールチップは使わない */
+  .skill-item::after,
+  .skill-item::before{
+    display: none !important;
+  }
+
+  /* Contact 文字少し小さく */
+  .contact-box{
+    padding: 36px 20px;
+  }
+  .contact-copy{
+    font-size: 14px;
+  }
+
+  /* トップへボタン少し小さめ */
+  .back-to-top{
+    width: 44px;
+    height: 44px;
+    bottom: 18px;
+    right: 18px;
+  }
+  .back-to-top::before {
+    width: 12px;
+    height: 12px;
+    border-width: 2.5px;
+  }
+
+  /* ゆず区切りの余白も少し詰める */
+  .yuzu-divider{
+    margin-top: 120px;
+  }
+}
+
+/* ================================
+  14. OSの「動きを減らす」設定への対応
+   ================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-item,
+  .btn,
+  .back-to-top,
+  .fade-in {
+    transition: none;
+    animation: none;
+  }
+  .fade-in{
+    opacity: 1;
+    transform: none;
+  }
+  .yuzu-divider img{
+    animation: none;
+    transform: none;
+  }
+}

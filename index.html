@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yunoma Design | ポートフォリオ</title>
+  <title>Yunoma Design | 柚乃間</title>
+
+  <!-- Google Fonts（見出し：Zen Old Mincho / 本文：Zen Kurenaido） -->
   <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&family=Zen+Kurenaido&display=swap" rel="stylesheet">
+
+  <!-- メインスタイル -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- lightbox 用CSS（画像ポップアップ） -->
   <link rel="stylesheet" href="css/lightbox.min.css">
 </head>
 
-<body>
+<body id="top">
 
   <!-- 🔶 ヘッダー -->
   <header class="header">
     <div class="container">
-      <h1 class="logo">YUNOMA DESIGN</h1>
+      <!-- ロゴクリックでページ先頭へ -->
+      <h1 class="logo"><a href="#top">YUNOMA DESIGN</a></h1>
       <nav>
         <ul class="nav-list">
           <li><a href="#about">About</a></li>
@@ -29,7 +36,8 @@
   <!-- 🌿 Heroセクション -->
   <section class="hero">
     <div class="hero-content">
-      <h2>あなたの想いをカタチにする</h2>
+      <!-- スマホだけ <br> を出す用に .sp-br を追加 -->
+      <h2>あなたの想いを<span class="sp-br"><br></span>カタチにする</h2>
       <p>Webデザイン × コーディング</p>
       <a href="#works" class="btn">作品を見る</a>
     </div>
@@ -39,9 +47,11 @@
   <section id="about" class="about fade-in">
     <div class="container">
       <h2>About Me</h2>
-      <p>こんにちは、柚(ゆず)と申します。<br>
-      コールセンターで働きながらWebデザインとプログラミングを学んでいる1歳児の母です。<br>
-      シンプルで温かみのあるデザインが好きで、HTML/CSSを使って自分の世界観を表現しています。</p>
+      <p>
+        こんにちは、柚(ゆず)と申します。<br>
+        コールセンターで働きながらWebデザインとプログラミングを学んでいる1歳児の母です。<br>
+        シンプルで温かみのあるデザインが好きで、HTML/CSSを使って自分の世界観を表現しています。
+      </p>
       <ul class="skills">
         <li>HTML / CSS</li>
         <li>JavaScript</li>
@@ -51,158 +61,224 @@
         <li>WordPress（Lightning）</li>
       </ul>
     </div>
-  <div class="yuzu-divider" aria-hidden="true">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-</div>
-  </section>
 
+    <!-- セクション区切り用ゆずアイコン -->
+    <div class="yuzu-divider" aria-hidden="true">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+    </div>
+  </section>
 
   <!-- 🖼 Works -->
   <section id="works" class="works fade-in">
     <div class="container">
       <h2>Works</h2>
       <div class="work-list">
+
         <div class="work-item">
-          <a href="images/yuzu_sample_01.png" data-lightbox="Works" data-title="旅行バナー（SNS投稿）"><img src="images/yuzu_sample_01.png" alt="旅行バナー（SNS投稿）"></a>
+          <a href="images/yuzu_sample_01.png"
+            data-lightbox="Works"
+            data-title="旅行バナー（SNS投稿）">
+            <img src="images/yuzu_sample_01.png" alt="旅行バナー（SNS投稿）" loading="lazy">
+          </a>
           <p>旅行バナー（SNS投稿）</p>
         </div>
+
         <div class="work-item">
           <div class="badge">採用</div>
-          <a href="images/LPmain.png" data-lightbox="Works" data-title="ホテルLPファーストビュー（高級感ver.）"><img src="images/LPmain.png" alt="ホテルLPファーストビュー（高級感ver.）"></a>
+          <a href="images/LPmain.png"
+            data-lightbox="Works"
+            data-title="ホテルLPファーストビュー（高級感ver.）">
+            <img src="images/LPmain.png" alt="ホテルLPファーストビュー（高級感ver.）" loading="lazy">
+          </a>
           <p>ホテルLP（高級感ver.）</p>
         </div>
+
         <div class="work-item">
-          <a href="images/LPmain2.png" data-lightbox="Works" data-title="ホテルLPファーストビュー（カジュアルver.）" ><img src="images/LPmain2.png" alt="ホテルLPファーストビュー（カジュアルver.）"></a>
+          <a href="images/LPmain2.png"
+            data-lightbox="Works"
+            data-title="ホテルLPファーストビュー（カジュアルver.）">
+            <img src="images/LPmain2.png" alt="ホテルLPファーストビュー（カジュアルver.）" loading="lazy">
+          </a>
           <p>ホテルLP（カジュアルver.）</p>
         </div>
+
         <div class="work-item">
-          <a href="images/美容室サイト.png" data-lightbox="Works" data-title="美容室サイト"><img src="images/美容室サイト.png" alt="美容室サイト" class="thumb-fv"></a>
+          <a href="images/美容室サイト.png"
+            data-lightbox="Works"
+            data-title="美容室サイト">
+            <!-- thumb-fv でFVを上寄せ表示 -->
+            <img src="images/美容室サイト.png" alt="美容室サイト" class="thumb-fv" loading="lazy">
+          </a>
           <p>美容室サイト(WordPress)</p>
         </div>
+
         <div class="work-item">
-          <a href="images/カフェサイト.png" data-lightbox="Works" data-title="カフェサイト"><img src="images/カフェサイト.png" alt="カフェサイト" class="thumb-fv"></a>
+          <a href="images/カフェサイト.png"
+            data-lightbox="Works"
+            data-title="カフェサイト">
+            <img src="images/カフェサイト.png" alt="カフェサイト" class="thumb-fv" loading="lazy">
+          </a>
           <p>カフェサイト(WordPress)</p>
         </div>
+
       </div>
     </div>
-  <div class="yuzu-divider" aria-hidden="true">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-</div>
+
+    <div class="yuzu-divider" aria-hidden="true">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+    </div>
   </section>
 
   <!-- 💡 Service -->
   <section id="service" class="service fade-in">
     <div class="container">
       <h2>What I Can Do / Tools & Skills</h2>
+
       <div class="skill-icons">
 
-      <!-- Web構成・デザイン -->
-      <div class="skill-item" data-tip="目的とターゲットに合わせて、伝わるデザインを制作します。">
-        <span class="skill-icon">
-          <img src="icons/design.svg" alt="design">
-        </span>
-        <p>Webデザイン</p>
-        <span class="skill-desc">目的とターゲットに合わせて、伝わるデザインを制作します。</span>
-      </div>
-      <div class="skill-item" data-tip="ヒアリング内容をもとに、構成と導線設計を行います。">
-        <span class="skill-icon">
-          <img src="icons/wire.svg" alt="LP">
-        </span>
-        <p>LP構成 / ワイヤー</p>
-        <span class="skill-desc">ヒアリング内容をもとに、構成と導線設計を行います。</span>
-      </div>
+        <!-- Web構成・デザイン -->
+        <div class="skill-item" data-tip="目的とターゲットに合わせて、伝わるデザインを制作します。">
+          <span class="skill-icon">
+            <img src="icons/design.svg" alt="Webデザイン">
+          </span>
+          <div class="skill-text">
+            <p>Webデザイン</p>
+            <span class="skill-desc">目的とターゲットに合わせて、伝わるデザインを制作します。</span>
+          </div>
+        </div>
 
-      <!-- コーディング -->
-      <div class="skill-item" data-tip="SEOと可読性を意識した、丁寧なマークアップを行います。">
-        <span class="skill-icon">
-          <img src="icons/html.svg" alt="HTML">
-        </span>
-        <p>HTML</p>
-        <span class="skill-desc">SEOと可読性を意識した、丁寧なマークアップを行います。</span>
-      </div>
-      <div class="skill-item" data-tip="デザインに合わせたスタイリングと、レスポンシブ対応が可能です。">
-        <span class="skill-icon">
-          <img src="icons/css.svg" alt="css">
-        </span>
-        <p>CSS</p>
-        <span class="skill-desc">デザインに合わせたスタイリングと、レスポンシブ対応が可能です。</span>
-      </div>
-      <div class="skill-item" data-tip="アニメーションや簡易インタラクションを実装できます。">
-        <span class="skill-icon">
-          <img src="icons/js.svg" alt="js">
-        </span>
-        <p>JavaScript（基本）</p>
-        <span class="skill-desc">アニメーションや簡易インタラクションを実装できます。</span>
-      </div>
+        <div class="skill-item" data-tip="ヒアリング内容をもとに、構成と導線設計を行います。">
+          <span class="skill-icon">
+            <img src="icons/wire.svg" alt="LP構成 / ワイヤー">
+          </span>
+          <div class="skill-text">
+            <p>LP構成 / ワイヤー</p>
+            <span class="skill-desc">ヒアリング内容をもとに、構成と導線設計を行います。</span>
+          </div>
+        </div>
 
-      <!-- CMS / ノーコード -->
-      <div class="skill-item" data-tip="シンプルで管理しやすいサイトを構築します。更新しやすさも意識します。">
-        <span class="skill-icon">
-          <img src="icons/WordPress.svg" alt="wp">
-        </span>
-        <p>WordPress (Lightning)</p>
-        <span class="skill-desc">シンプルで管理しやすいサイトを構築します。更新しやすさも意識します。</span>
-      </div>
-      <div class="skill-item" data-tip="コーディング不要、低予算でスピーディーに美しいサイトを制作します。">
-        <span class="skill-icon">
-          <img src="icons/studio.svg" alt="Studio">
-        </span>
-        <p>STUDIO</p>
-        <span class="skill-desc">コーディング不要、低予算でスピーディーに美しいサイトを制作します。</span>
-      </div>
+        <!-- コーディング -->
+        <div class="skill-item" data-tip="SEOと可読性を意識した、丁寧なマークアップを行います。">
+          <span class="skill-icon">
+            <img src="icons/html.svg" alt="HTML">
+          </span>
+          <div class="skill-text">
+            <p>HTML</p>
+            <span class="skill-desc">SEOと可読性を意識した、丁寧なマークアップを行います。</span>
+          </div>
+        </div>
 
-      <!-- デザインツール -->
-      <div class="skill-item" data-tip="ワイヤー・デザイン制作・UI設計を行います。共同編集にも対応しています。">
-        <span class="skill-icon">
-          <img src="icons/figma.svg" alt="Figma">
-        </span>
-        <p>Figma</p>
-        <span class="skill-desc">ワイヤー・デザイン制作・UI設計を行います。共同編集にも対応しています。</span>
-      </div>
-      <div class="skill-item" data-tip="SNS投稿素材やバナーなど、スピーディーにデザイン制作できます。">
-        <span class="skill-icon">
-          <img src="icons/canva.svg" alt="canva">
-        </span>
-        <p>Canva</p>
-        <span class="skill-desc">SNS投稿素材やバナーなど、スピーディーにデザイン制作できます。</span>
-      </div>
+        <div class="skill-item" data-tip="デザインに合わせたスタイリングと、レスポンシブ対応が可能です。">
+          <span class="skill-icon">
+            <img src="icons/css.svg" alt="CSS">
+          </span>
+          <div class="skill-text">
+            <p>CSS</p>
+            <span class="skill-desc">デザインに合わせたスタイリングと、レスポンシブ対応が可能です。</span>
+          </div>
+        </div>
+
+        <div class="skill-item" data-tip="アニメーションや簡易インタラクションを実装できます。">
+          <span class="skill-icon">
+            <img src="icons/js.svg" alt="JavaScript">
+          </span>
+          <div class="skill-text">
+            <p>JavaScript（基本）</p>
+            <span class="skill-desc">アニメーションや簡易インタラクションを実装できます。</span>
+          </div>
+        </div>
+
+        <!-- CMS / ノーコード -->
+        <div class="skill-item" data-tip="シンプルで管理しやすいサイトを構築します。更新しやすさも意識します。">
+          <span class="skill-icon">
+            <img src="icons/WordPress.svg" alt="WordPress (Lightning)">
+          </span>
+          <div class="skill-text">
+            <p>WordPress (Lightning)</p>
+            <span class="skill-desc">シンプルで管理しやすいサイトを構築します。更新しやすさも意識します。</span>
+          </div>
+        </div>
+
+        <div class="skill-item" data-tip="コーディング不要、低予算でスピーディーに美しいサイトを制作します。">
+          <span class="skill-icon">
+            <img src="icons/studio.svg" alt="STUDIO">
+          </span>
+          <div class="skill-text">
+            <p>STUDIO</p>
+            <span class="skill-desc">コーディング不要、低予算でスピーディーに美しいサイトを制作します。</span>
+          </div>
+        </div>
+
+        <!-- デザインツール -->
+        <div class="skill-item" data-tip="ワイヤー・デザイン制作・UI設計を行います。共同編集にも対応しています。">
+          <span class="skill-icon">
+            <img src="icons/figma.svg" alt="Figma">
+          </span>
+          <div class="skill-text">
+            <p>Figma</p>
+            <span class="skill-desc">ワイヤー・デザイン制作・UI設計を行います。共同編集にも対応しています。</span>
+          </div>
+        </div>
+
+        <div class="skill-item" data-tip="SNS投稿素材やバナーなど、スピーディーにデザイン制作できます。">
+          <span class="skill-icon">
+            <img src="icons/canva.svg" alt="Canva">
+          </span>
+          <div class="skill-text">
+            <p>Canva</p>
+            <span class="skill-desc">SNS投稿素材やバナーなど、スピーディーにデザイン制作できます。</span>
+          </div>
+        </div>
+
       </div>
     </div>
-  <div class="yuzu-divider" aria-hidden="true">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-  <img src="images/yuzuicon.png" alt="">
-</div>
+
+    <div class="yuzu-divider" aria-hidden="true">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+      <img src="images/yuzuicon.png" alt="">
+    </div>
   </section>
 
-<!-- 💌 Contact -->
-<section id="contact" class="contact fade-in">
-  <div class="container contact-box">
-    <h2>Contact</h2>
-    <p class="contact-copy">
-      あなたの想いを形にするお手伝いをします。<br>
-      小さな制作から、デザインのご相談まで。<br>
-      まずはお気軽にお問い合わせください🍋
-    </p>
+  <!-- 💌 Contact -->
+  <section id="contact" class="contact fade-in">
+    <div class="container contact-box">
+      <h2>Contact</h2>
+      <p class="contact-copy">
+        あなたの想いを形にするお手伝いをします。<br>
+        小さな制作から、デザインのご相談まで。<br>
+        まずはお気軽にお問い合わせください🍋
+      </p>
 
-    <div class="contact-buttons">
-      <a href="https://forms.gle/KoLDkJJonhhnaAbu6" class="btn-contact">📩 お問い合わせはこちら</a>
-      <a href="https://crowdworks.jp/public/employees/6442811?ref=share_url_wkprofile" target="_blank" rel="noopener noreferrer" class="btn-contact secondary">💼 CrowdWorksを見る</a>
+      <div class="contact-buttons">
+        <a href="https://forms.gle/KoLDkJJonhhnaAbu6"
+          class="btn-contact"
+          target="_blank"
+          rel="noopener noreferrer">
+          📩 お問い合わせはこちら
+        </a>
+        <a href="https://crowdworks.jp/public/employees/6442811?ref=share_url_wkprofile"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-contact secondary">
+          💼 CrowdWorksを見る
+        </a>
+      </div>
+
+      <div class="contact-social">
+        <a href="https://x.com/yuzu_yunoma"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="X">
+          <img src="icons/x.svg" alt="Xロゴ" class="social-icon">
+        </a>
+      </div>
     </div>
-<div class="contact-social">
-  <a href="https://x.com/yuzu_yunoma" target="_blank" rel="noopener noreferrer" aria-label="X">
-    <img src="icons/x.svg" alt="Xロゴ" class="social-icon">
-  </a>
-</div>
-
-
-  </div>
-</section>
-
+  </section>
 
   <!-- 🍃 フッター -->
   <footer class="footer fade-in">
@@ -212,10 +288,10 @@
   <!-- 🔝 トップに戻るボタン -->
   <button id="backToTop" class="back-to-top" aria-label="ページ上部へ戻る"></button>
 
-  <!-- 💡 自前スクリプト：DOMContentLoaded内に1セットだけ -->
+  <!-- 💡 自前スクリプト：DOMContentLoaded 内に1セットだけ -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // ふわっとアニメ
+      /* ふわっとアニメーション（IntersectionObserver） */
       const fadeEls = document.querySelectorAll('.fade-in');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -224,7 +300,7 @@
       });
       fadeEls.forEach(el => observer.observe(el));
 
-      // 🔝 トップに戻るボタン
+      /* 🔝 トップに戻るボタン制御 */
       const backToTop = document.getElementById('backToTop');
 
       const updateBackToTop = () => {
@@ -234,7 +310,7 @@
 
       window.addEventListener('scroll', updateBackToTop);
       window.addEventListener('load', updateBackToTop);
-      updateBackToTop(); // 初回反映（読み込み位置が下でも出る）
+      updateBackToTop(); // リロード時に下にいた場合でも反映
 
       if (backToTop) {
         backToTop.addEventListener('click', () => {
