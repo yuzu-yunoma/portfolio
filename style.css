@@ -348,6 +348,12 @@ p {
   justify-items: center;
 }
 
+/* Photoshopカード向け：長いタイトルの折返しを防ぐ */
+.skill-text p {
+  white-space: normal;   /* ←折り返しOKに */
+  line-height: 1.4;
+}
+
 /* カード本体（PC時） */
 .skill-item {
   background: var(--white);
